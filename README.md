@@ -8,6 +8,14 @@ A first-person-view (FPV) game in a 3D world that supports navigation, clicking 
 ## Methodology
 Use VSCode or Visual Studio or JetBrains CLion to make a series of programs.
 
+- See examples from Zhao repo
+- Modify
+- Adapt
+- Recompile
+
+  
+
+
 ## Results
 
 
