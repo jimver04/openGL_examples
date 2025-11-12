@@ -1,0 +1,10 @@
+^C:\MC\12_11_2025\OPENGL_EXAMPLES\BUILD\CMAKEFILES\B2734CED487EE5EA0607D19EDBBC4958\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/MC/12_11_2025/openGL_examples -BC:/MC/12_11_2025/openGL_examples/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/MC/12_11_2025/openGL_examples/build/proj01.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

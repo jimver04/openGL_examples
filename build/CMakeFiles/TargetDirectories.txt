@@ -1,0 +1,3 @@
+C:/MC/12_11_2025/openGL_examples/build/CMakeFiles/run01.dir
+C:/MC/12_11_2025/openGL_examples/build/CMakeFiles/ALL_BUILD.dir
+C:/MC/12_11_2025/openGL_examples/build/CMakeFiles/ZERO_CHECK.dir
