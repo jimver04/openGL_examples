@@ -136,7 +136,7 @@ void window_size_callback(GLFWwindow* window, int w, int h)
 
     glViewport(0, 0, width, height);
 
-    matProj = glm::perspective(glm::radians(60.0f), width/(float)height, 2.0f, 8.0f);
+    matProj = glm::perspective(glm::radians(60.0f), width/(float)height, 2.0f, 10000.0f);
 }
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
@@ -312,7 +312,7 @@ int main()
     matView = glm::lookAt(viewPos, glm::vec3(0, 0, 0), glm::vec3(0, 1, 0)); 
 
     // set the Y field of view angle to 60 degrees, width/height ratio to 1.0, and a near plane of 3.5, far plane of 6.5
-    matProj = glm::perspective(glm::radians(60.0f), width / (float) height, 2.0f, 8.0f);
+    matProj = glm::perspective(glm::radians(60.0f), width / (float) height, 1.0f, 1000.0f);
 
     // LabA09 Shadow Map
     matLightView = glm::lookAt(lightPos, glm::vec3(0, 0, 0), glm::vec3(0, 1, 0)); 
@@ -337,6 +337,9 @@ int main()
     std::shared_ptr<Mesh> bunny = std::make_shared<Mesh>();
     bunny->init("models/bunny_normal.obj", texblinnShader);
 
+    std::shared_ptr<Mesh> house = std::make_shared<Mesh>();
+    house->init("models/plane.obj", texblinnShader);
+
     //std::shared_ptr<Mesh> box = std::make_shared<Mesh>();
     // box->init("models/Box_normal.obj", normalblinnShader);
 
@@ -347,6 +350,7 @@ int main()
     std::shared_ptr<Node> teapotNode = std::make_shared<Node>();
     std::shared_ptr<Node> cubeNode = std::make_shared<Node>();
     std::shared_ptr<Node> bunnyNode = std::make_shared<Node>();
+    std::shared_ptr<Node> houseNode = std::make_shared<Node>();
     //std::shared_ptr<Node> boxNode = std::make_shared<Node>();
     
     //----------------------------------------------------
@@ -354,10 +358,13 @@ int main()
     teapotNode->addMesh(teapot);
     cubeNode->addMesh(cube, glm::mat4(1.0), glm::mat4(1.0), glm::scale(glm::vec3(2.0f, 0.25f, 1.5f)));
     bunnyNode->addMesh(bunny, glm::mat4(1.0), glm::mat4(1.0), glm::scale(glm::vec3(0.005f, 0.005f, 0.005f)));
+    houseNode->addMesh(house, glm::mat4(1.0), glm::mat4(1.0), glm::scale(glm::vec3(0.005f, 0.005f, 0.005f)));
     //boxNode->addMesh(box, glm::mat4(1.0), glm::rotate(glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.0f)));
 
     cubeNode->addChild(teapotNode, glm::translate(glm::vec3(-1.2f, 0.5f, 0.0f)));
     cubeNode->addChild(bunnyNode, glm::translate(glm::vec3(1.0f, 1.5f, 0.5f)));
+    cubeNode->addChild(houseNode, glm::translate(glm::vec3(1.0f, 1.5f, 0.5f)));
+    
     // cubeNode->addChild(teapotNode, glm::translate(glm::vec3(0.0f, 1.0f, 0.0f)), glm::rotate(glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.0f)));
     
     //----------------------------------------------------
